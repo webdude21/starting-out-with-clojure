@@ -2,6 +2,11 @@
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+
+  (defn avarage
+    [numbers]
+      (/ (apply + numbers) (count numbers)))
+
+  (printf "Result: %d%n" (avarage [60 80 100 400]))
+)
