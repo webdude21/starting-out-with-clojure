@@ -1,24 +1,22 @@
 (ns clojure_noob.core
   (:gen-class))
 
+;; curryable pow function
+(defn pow
+  [x]
+    (fn [y] (int (Math/pow y x))))
+
+;; curryable sum function
+(defn sum
+  [x]
+    (fn [y] (+ x y)))
+
+(defn avarage
+  [numbers]
+    (/ (apply + numbers) (count numbers)))
+
 (defn -main
   [& args]
-
-  ;; curryable pow function
-  (defn pow
-    [x]
-      (fn [y] (int (Math/pow y x)))
-    )
-
-  ;; curryable sum function
-  (defn sum
-    [x]
-      (fn [y] (+ x y))
-    )
-
-  (defn avarage
-    [numbers]
-      (/ (apply + numbers) (count numbers)))
 
   ;; curried version of sum with 2
   (def sumWithTwo (sum 2))
