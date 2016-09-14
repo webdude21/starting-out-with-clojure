@@ -27,5 +27,4 @@
 
   (printf "Average of %s is %d%n" someNumbers (avarage someNumbers))
   (println (map sumWithTwo [1 3 4 5 6]))
-  (println (map toThePowerOf10 [1 3 4 5 6]))
-)
+  (println (map toThePowerOf10 [1 3 4 5 6])))
