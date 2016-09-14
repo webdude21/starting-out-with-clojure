@@ -4,5 +4,5 @@
   (reduce * (range 1 (inc n))))
 
 (defn fibonacci [n]
-  (take n
-    (map first (iterate (fn [[a b]] [b (+ a b)]) [0 1]))))
+  (if (< n 2) n
+    (+ (fibonacci (dec n)) (fibonacci(- n 2)))))
