@@ -2,22 +2,17 @@
   (:gen-class))
 
 ;; curryable pow function
-(defn pow
-  [x]
-    (fn [y] (int (Math/pow y x))))
+(defn pow [x]
+  (fn [y] (int (Math/pow y x))))
 
 ;; curryable sum function
-(defn sum
-  [x]
-    (fn [y] (+ x y)))
+(defn sum [x]
+  (fn [y] (+ x y)))
 
-(defn avarage
-  [numbers]
-    (/ (apply + numbers) (count numbers)))
+(defn avarage [numbers]
+  (/ (apply + numbers) (count numbers)))
 
-(defn -main
-  [& args]
-
+(defn -main [& args]
   ;; curried version of sum with 2
   (def sumWithTwo (sum 2))
   ;; curried version to expand a value to the power of 10
