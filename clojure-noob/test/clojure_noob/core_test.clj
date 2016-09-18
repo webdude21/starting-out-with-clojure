@@ -22,3 +22,12 @@
     (is (= (fibonacci 10) 55))
     (is (= (fibonacci 18) 2584))
     (is (= (fibonacci 26) 121393))))
+
+(deftest a-test-common-problems-prime-numbers
+  (testing "isPrime function works just fine"
+    (is (= (isPrime 2) true))
+    (is (= (isPrime 5) true))
+    (is (= (isPrime 8) false))
+    (is (= (isPrime 4) false))
+    (is (= (isPrime 73) true))
+    (is (= (isPrime 75) false))))
