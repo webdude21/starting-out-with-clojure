@@ -25,10 +25,10 @@
     (is (= (fibonacci 150) 9969216677189303386214405760200N))))
 
 (deftest a-test-common-problems-prime-numbers
-  (testing "isPrime function works just fine"
-    (is (= (isPrime 2) true))
-    (is (= (isPrime 5) true))
-    (is (= (isPrime 8) false))
-    (is (= (isPrime 4) false))
-    (is (= (isPrime 73) true))
-    (is (= (isPrime 75) false))))
+  (testing "prime? function works just fine"
+    (is (= (prime? 2) true))
+    (is (= (prime? 5) true))
+    (is (= (prime? 8) false))
+    (is (= (prime? 4) false))
+    (is (= (prime? 73) true))
+    (is (= (prime? 75) false))))
