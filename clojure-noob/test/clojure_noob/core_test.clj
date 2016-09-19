@@ -15,14 +15,17 @@
 
 (deftest a-test-common-problems-fibonacci
   (testing "Fibonacci function works just fine"
-    (is (= (fibonacci 2) 1))
-    (is (= (fibonacci 0) 0))
-    (is (= (fibonacci 1) 1))
-    (is (= (fibonacci 7) 13))
-    (is (= (fibonacci 10) 55))
-    (is (= (fibonacci 18) 2584))
-    (is (= (fibonacci 26) 121393))
-    (is (= (fibonacci 150) 9969216677189303386214405760200N))))
+    (are [actual expected]
+      (= actual expected)
+      (fibonacci 2) 1
+      (fibonacci 2) 1
+      (fibonacci 0) 0
+      (fibonacci 1) 1
+      (fibonacci 7) 13
+      (fibonacci 10) 55
+      (fibonacci 18) 2584
+      (fibonacci 26) 121393
+      (fibonacci 150) 9969216677189303386214405760200N)))
 
 (deftest a-test-common-problems-prime-numbers
   (testing "prime? function works just fine"
