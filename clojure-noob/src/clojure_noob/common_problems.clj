@@ -8,9 +8,9 @@
     (if (< n 2) n
       (+' (fibonacci (dec n)) (fibonacci(- n 2)))))))
 
-(defn devisible? [n]
+(defn divisableOf? [n]
     (fn [divisor] (= (rem n divisor) 0)))
 
 (defn prime? [n]
-  (def divisorOfN? (devisible? n))
+  (def divisorOfN? (divisableOf? n))
     (not-any? divisorOfN? (range 2 (inc (int (Math/sqrt n))))))
