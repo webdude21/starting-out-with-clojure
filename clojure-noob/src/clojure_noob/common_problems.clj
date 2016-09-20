@@ -4,6 +4,7 @@
   (reduce * (range 1 (inc n))))
 
 (def fibonacci
+  repeatedly
   (memoize
     (fn [n]
       (if (< n 2)
