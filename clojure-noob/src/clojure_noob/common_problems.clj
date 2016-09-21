@@ -11,7 +11,7 @@
         (+' (fibonacci (dec n)) (fibonacci (- n 2)))))))
 
 (defn divisable-of? [n]
-  (fn [divisor] (= (rem n divisor) 0)))
+  (fn [divisor] (zero? (rem n divisor))))
 
 (defn prime? [n]
   (not-any? (divisable-of? n) (range 2 (inc (int (Math/sqrt n))))))

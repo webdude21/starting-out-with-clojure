@@ -32,10 +32,10 @@
 
 ;Size of a list
 (def get-list-size
-  (fn[lst]
+  (fn [lst]
     (count lst)))
 
 ;Abs of list values
 (def get-abs-values-list
-   (fn [lst]
-     (map (fn [num] (Math/abs num)) lst)))
+  (fn [lst]
+    (map #(Math/abs %) lst)))

@@ -1,11 +1,11 @@
 (ns clojure_noob.core
   (:gen-class))
 
-;; curryable pow function
+; curryable pow function
 (defn pow [x]
   (fn [y] (int (Math/pow y x))))
 
-;; curryable sum function
+; curryable sum function
 (defn sum [x]
   (fn [y] (+ x y)))
 
@@ -13,9 +13,9 @@
   (/ (apply + numbers) (count numbers)))
 
 (defn -main [& args]
-  ;; curried version of sum with 2
+  ; curried version of sum with 2
   (def sumWithTwo (sum 2))
-  ;; curried version to expand a value to the power of 10
+  ; curried version to expand a value to the power of 10
   (def toThePowerOf10 (pow 10))
 
   (def someNumbers [60 80 100 400])
