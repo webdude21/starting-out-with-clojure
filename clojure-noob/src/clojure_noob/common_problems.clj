@@ -4,15 +4,14 @@
   (reduce * (range 1 (inc n))))
 
 (def fibonacci
-  repeatedly
   (memoize
     (fn [n]
       (if (< n 2)
         n
         (+' (fibonacci (dec n)) (fibonacci (- n 2)))))))
 
-(defn divisableOf? [n]
+(defn divisable-of? [n]
   (fn [divisor] (= (rem n divisor) 0)))
 
 (defn prime? [n]
-  (not-any? (divisableOf? n) (range 2 (inc (int (Math/sqrt n))))))
+  (not-any? (divisable-of? n) (range 2 (inc (int (Math/sqrt n))))))
