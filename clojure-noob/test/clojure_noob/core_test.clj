@@ -38,3 +38,13 @@
       4 false
       73 true
       75 false)))
+
+(deftest a-length-for-sequence
+  (testing "length works for various types of sequence"
+    (are [input expected]
+      (= (length input) expected)
+      '(1 2 3 4 5 6) 6
+      #{"aas" "fas" "msas"} 3
+      {:foo "bar" :buzz "bar"} 2
+      "four" 4
+      [1 2 3] 3)))
