@@ -3,18 +3,14 @@
 
 ; curryable pow function
 (defn pow [x]
-  (fn [y] (int (Math/pow y x))))
-
-; curryable sum function
-(defn sum [x]
-  (fn [y] (+ x y)))
+  (fn [y] (int (Math/pow x y))))
 
 (defn avarage [numbers]
   (/ (apply + numbers) (count numbers)))
 
 (defn -main [& args]
   ; curried version of sum with 2
-  (def sumWithTwo (sum 2))
+  (def sumWithTwo (partial + 2))
   ; curried version to expand a value to the power of 10
   (def toThePowerOf10 (pow 10))
 
