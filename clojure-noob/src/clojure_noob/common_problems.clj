@@ -22,3 +22,10 @@
   (loop [i lst cnt 0]
     (cond (empty? i) cnt
           :t (recur (rest i) (inc cnt)))))
+
+(defn my-reverse
+  [coll]
+  (println coll)
+  (if (empty? coll)
+    []
+    (conj (my-reverse (rest coll)) (first coll))))
