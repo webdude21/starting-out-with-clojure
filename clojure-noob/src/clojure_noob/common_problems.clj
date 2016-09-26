@@ -25,7 +25,6 @@
 
 (defn my-reverse
   [coll]
-  (println coll)
   (if (empty? coll)
     []
     (conj (my-reverse (rest coll)) (first coll))))
