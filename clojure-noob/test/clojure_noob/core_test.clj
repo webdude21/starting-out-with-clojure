@@ -56,3 +56,11 @@
       '(1 2 3 4 5 6) '(6 5 4 3 2 1)
       (sorted-set 1 2 3 4 5 6) '(6 5 4 3 2 1)
       [1 2 3] [3 2 1])))
+
+(deftest a-test-common-problems-fibonacci-range
+  (testing "Fibonacci function works just fine"
+    (are [input expected]
+      (= (fibonacci-range input) expected)
+      3 '(1 1 2)
+      6 '(1 1 2 3 5 8)
+      8 '(1 1 2 3 5 8 13 21))))

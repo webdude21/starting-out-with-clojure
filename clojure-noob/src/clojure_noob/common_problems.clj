@@ -28,3 +28,7 @@
   (if (empty? coll)
     []
     (conj (my-reverse (rest coll)) (first coll))))
+
+(defn fibonacci-range
+  [n]
+  (take n (map first (iterate (fn [[a b]] [b (+' a b)]) [1 1]))))
