@@ -38,3 +38,8 @@
   (= (if (string? coll)
        (apply str (reverse coll))
        (reverse coll)) coll))
+
+(defn my-flatten
+  [coll]
+  (filter (complement sequential?)
+          (rest (tree-seq sequential? seq coll))))
