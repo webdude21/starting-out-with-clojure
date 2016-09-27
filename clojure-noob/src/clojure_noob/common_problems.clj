@@ -32,3 +32,9 @@
 (defn fibonacci-range
   [n]
   (take n (map first (iterate (fn [[a b]] [b (+' a b)]) [1 1]))))
+
+(defn palindrome?
+  [coll]
+  (= (if (string? coll)
+       (apply str (reverse coll))
+       (reverse coll)) coll))

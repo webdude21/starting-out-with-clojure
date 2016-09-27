@@ -64,3 +64,12 @@
       3 '(1 1 2)
       6 '(1 1 2 3 5 8)
       8 '(1 1 2 3 5 8 13 21))))
+
+(deftest a-test-common-problems-fibonacci-range
+  (testing "Fibonacci function works just fine"
+    (are [input expected]
+      (= (palindrome? input) expected)
+      '(1 2 3 4 5) false
+      "racecar" true
+      [:foo :bar :foo] true
+      '(1 1 3 3 1 1) true)))
