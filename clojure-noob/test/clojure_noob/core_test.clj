@@ -88,3 +88,12 @@
       ["a" ["b"] "c"] '("a" "b" "c")
       '((((:a)))) '(:a)
       )))
+
+(deftest a-test-common-problems-compress-sequence
+  (testing "compress function works just fine"
+    (are [input expected]
+      (= (compress input) expected)
+      "Leeeeeerrroyyy" "Leroy"
+      [1 1 2 3 3 2 2 3] '(1 2 3 2 3)
+      [[1 2] [1 2] [3 4] [1 2]] '([1 2] [3 4] [1 2])
+      )))

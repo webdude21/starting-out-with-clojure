@@ -46,3 +46,8 @@
 
 (defn filter-caps-chars [chrs]
   (apply str (filter (fn [x] (Character/isUpperCase x)) chrs)))
+
+(defn compress [coll]
+  (if (string? coll)
+    (apply str (dedupe coll))
+    (dedupe coll)))
