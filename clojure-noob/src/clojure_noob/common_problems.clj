@@ -43,3 +43,6 @@
   [coll]
   (filter (complement sequential?)
           (rest (tree-seq sequential? seq coll))))
+
+(defn filter-caps-chars [chrs]
+  (apply str (filter (fn [x] (Character/isUpperCase x)) chrs)))
