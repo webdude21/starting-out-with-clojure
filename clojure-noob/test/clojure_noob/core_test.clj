@@ -89,6 +89,16 @@
       '((((:a)))) '(:a)
       )))
 
+(deftest a-test-filter-caps-chars
+  (testing "filter-caps-chars works just fine"
+    (are [input expected]
+      (= (filter-caps-chars input) expected)
+      "aCsFasfasFFASFA" "CFFFASFA"
+      "HeLlO, WoRlD!" "HLOWRD"
+      "nothing" ""
+      "$#A(*&987Zf" "AZ"
+      )))
+
 (deftest a-test-common-problems-compress-sequence
   (testing "compress function works just fine"
     (are [input expected]
