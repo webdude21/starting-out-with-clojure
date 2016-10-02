@@ -1,11 +1,6 @@
 (ns clojure_noob.core_test
   (:require [clojure.test :refer :all]
-            [clojure_noob.common_problems :refer :all]
-            [clojure_noob.core :refer :all]))
-
-(deftest a-test-avarage
-  (testing "Average function works just fine"
-    (is (= (avarage [1 2 3 4 -1 3]) 2))))
+            [clojure_noob.common_problems :refer :all]))
 
 (deftest a-test-common-problems-factorial
   (testing "Factorial function works just fine"
