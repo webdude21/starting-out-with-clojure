@@ -51,3 +51,6 @@
   (if (string? coll)
     (apply str (dedupe coll))
     (dedupe coll)))
+
+(defn seq-pack [coll]
+  (partition-by identity coll))
