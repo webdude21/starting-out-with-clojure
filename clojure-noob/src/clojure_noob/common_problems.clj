@@ -54,3 +54,6 @@
 
 (defn seq-pack [coll]
   (partition-by identity coll))
+
+(defn seq-duplicate [coll]
+  (reduce #(conj %1 %2 %2) [] coll))

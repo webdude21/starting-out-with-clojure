@@ -111,3 +111,12 @@
       [:a :a :b :b :c] '((:a :a) (:b :b) (:c))
       [[1 2] [1 2] [3 4]] '(([1 2] [1 2]) ([3 4]))
       )))
+
+(deftest a-test-common-problems-duplicate-each-element-of-a-seq
+  (testing "seq-duplicate function works just fine"
+    (are [input expected]
+      (= (seq-duplicate input) expected)
+      [1 2 3] '(1 1 2 2 3 3)
+      [:a :a :b :b] '(:a :a :a :a :b :b :b :b)
+      [[1 2] [3 4]] '([1 2] [1 2] [3 4] [3 4])
+      )))
