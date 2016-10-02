@@ -57,3 +57,6 @@
 
 (defn seq-duplicate [coll]
   (reduce #(conj %1 %2 %2) [] coll))
+
+(defn seq-replicate [coll n-times]
+  (reduce (fn [prev curr] (concat prev (repeat n-times curr))) [] coll))
