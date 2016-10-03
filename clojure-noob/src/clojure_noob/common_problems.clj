@@ -17,7 +17,6 @@
   (not-any? (divisable-of? n) (range 2 (inc (int (Math/sqrt n))))))
 
 (defn length
-  "Returns the length of any sequence (strings, maps, sets, vectors, lists) are all welcome"
   [lst]
   (loop [i lst cnt 0]
     (cond (empty? i) cnt
