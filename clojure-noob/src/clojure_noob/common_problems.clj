@@ -67,4 +67,7 @@
       (recur (inc i) (conj acc i)) acc)))
 
 (defn my-max-key [& args]
- (last (sort args)))
+  (last (sort args)))
+
+(defn my-interpose [_ coll]
+  (rest (mapcat #(vector _ %) coll)))

@@ -150,3 +150,12 @@
       [30 20] 30
       [45 67 11] 67
       )))
+
+
+(deftest a-test-common-problem-implement-own-interpose
+  (testing "my-interpose function works just fine"
+    (are [item-to-interpose coll expected]
+      (= (my-interpose item-to-interpose coll) expected)
+      0 [1 2 3] [1 0 2 0 3]
+      :z [:a :b :c :d] [:a :z :b :z :c :z :d]
+      )))
