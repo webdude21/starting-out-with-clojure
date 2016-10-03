@@ -131,3 +131,22 @@
       [[1 2] [3 4]] 2 '([1 2] [1 2] [3 4] [3 4])
       [44 33] 2 [44 44 33 33]
       )))
+
+(deftest a-test-common-problem-implement-own-range
+  (testing "my-range function works just fine"
+    (are [start end expected]
+      (= (my-range start end) expected)
+      1 4 '(1 2 3)
+      -2 2 '(-2 -1 0 1)
+      5 8 '(5 6 7)
+      1 11 '(1 2 3 4 5 6 7 8 9 10)
+      )))
+
+(deftest a-test-common-problem-implement-own-max-key
+  (testing "my-max-key function works just fine"
+    (are [input expected]
+      (= (apply my-max-key input) expected)
+      [1 8 3 4] 8
+      [30 20] 30
+      [45 67 11] 67
+      )))

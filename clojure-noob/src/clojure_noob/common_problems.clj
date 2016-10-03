@@ -60,3 +60,11 @@
 
 (defn seq-replicate [coll n-times]
   (reduce (fn [prev curr] (concat prev (repeat n-times curr))) [] coll))
+
+(defn my-range [start end]
+  (loop [i start acc []]
+    (if (< i end)
+      (recur (inc i) (conj acc i)) acc)))
+
+(defn my-max-key [& args]
+ (last (sort args)))
