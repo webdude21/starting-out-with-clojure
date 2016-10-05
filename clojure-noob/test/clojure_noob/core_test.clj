@@ -8,8 +8,7 @@
       (= (factorial input) expected)
       1 1
       5 120
-      15 1307674368000
-      )))
+      15 1307674368000)))
 
 (deftest a-test-common-problems-fibonacci
   (testing "Fibonacci function works just fine"
@@ -22,8 +21,7 @@
       10 55
       18 2584
       26 121393
-      150 9969216677189303386214405760200N
-      )))
+      150 9969216677189303386214405760200N)))
 
 (deftest a-test-common-problems-prime-numbers
   (testing "prime? function works just fine"
@@ -34,8 +32,7 @@
       8 false
       4 false
       73 true
-      75 false
-      )))
+      75 false)))
 
 (deftest a-length-for-sequence
   (testing "length works for various types of sequence"
@@ -45,8 +42,8 @@
       #{"aas" "fas" "msas"} 3
       {:foo "bar" :buzz "bar"} 2
       "four" 4
-      [1 2 3] 3
-      )))
+      [1 2 3] 3)))
+
 
 (deftest a-reverse-for-sequence
   (testing "reverse works for various types of sequence"
@@ -54,8 +51,7 @@
       (= (my-reverse input) expected)
       '(1 2 3 4 5 6) '(6 5 4 3 2 1)
       (sorted-set 1 2 3 4 5 6) '(6 5 4 3 2 1)
-      [1 2 3] [3 2 1]
-      )))
+      [1 2 3] [3 2 1])))
 
 (deftest a-test-common-problems-fibonacci-range
   (testing "Fibonacci function works just fine"
@@ -63,8 +59,7 @@
       (= (fibonacci-range input) expected)
       3 '(1 1 2)
       6 '(1 1 2 3 5 8)
-      8 '(1 1 2 3 5 8 13 21)
-      )))
+      8 '(1 1 2 3 5 8 13 21))))
 
 (deftest a-test-common-problems-fibonacci-range
   (testing "Fibonacci function works just fine"
@@ -81,8 +76,7 @@
       (= (my-flatten input) expected)
       '((1 2) 3 [4 [5 6]]) '(1 2 3 4 5 6)
       ["a" ["b"] "c"] '("a" "b" "c")
-      '((((:a)))) '(:a)
-      )))
+      '((((:a)))) '(:a))))
 
 (deftest a-test-filter-caps-chars
   (testing "filter-caps-chars works just fine"
@@ -91,8 +85,7 @@
       "aCsFasfasFFASFA" "CFFFASFA"
       "HeLlO, WoRlD!" "HLOWRD"
       "nothing" ""
-      "$#A(*&987Zf" "AZ"
-      )))
+      "$#A(*&987Zf" "AZ")))
 
 (deftest a-test-common-problems-compress-sequence
   (testing "compress function works just fine"
@@ -100,8 +93,7 @@
       (= (compress input) expected)
       "Leeeeeerrroyyy" "Leroy"
       [1 1 2 3 3 2 2 3] '(1 2 3 2 3)
-      [[1 2] [1 2] [3 4] [1 2]] '([1 2] [3 4] [1 2])
-      )))
+      [[1 2] [1 2] [3 4] [1 2]] '([1 2] [3 4] [1 2]))))
 
 (deftest a-test-common-problems-pack-sequence
   (testing "seq-pack function works just fine"
@@ -109,8 +101,7 @@
       (= (seq-pack input) expected)
       [1 1 2 1 1 1 3 3] '((1 1) (2) (1 1 1) (3 3))
       [:a :a :b :b :c] '((:a :a) (:b :b) (:c))
-      [[1 2] [1 2] [3 4]] '(([1 2] [1 2]) ([3 4]))
-      )))
+      [[1 2] [1 2] [3 4]] '(([1 2] [1 2]) ([3 4])))))
 
 (deftest a-test-common-problems-duplicate-each-element-of-a-seq
   (testing "seq-duplicate function works just fine"
@@ -118,8 +109,7 @@
       (= (seq-duplicate input) expected)
       [1 2 3] '(1 1 2 2 3 3)
       [:a :a :b :b] '(:a :a :a :a :b :b :b :b)
-      [[1 2] [3 4]] '([1 2] [1 2] [3 4] [3 4])
-      )))
+      [[1 2] [3 4]] '([1 2] [1 2] [3 4] [3 4]))))
 
 (deftest a-test-common-problems-replicate-seq-n-times
   (testing "seq-replicate function works just fine"
@@ -129,8 +119,7 @@
       [:a :b] 4 '(:a :a :a :a :b :b :b :b)
       [4 5 6] 1 '(4 5 6)
       [[1 2] [3 4]] 2 '([1 2] [1 2] [3 4] [3 4])
-      [44 33] 2 [44 44 33 33]
-      )))
+      [44 33] 2 [44 44 33 33])))
 
 (deftest a-test-common-problem-implement-own-range
   (testing "my-range function works just fine"
@@ -139,8 +128,7 @@
       1 4 '(1 2 3)
       -2 2 '(-2 -1 0 1)
       5 8 '(5 6 7)
-      1 11 '(1 2 3 4 5 6 7 8 9 10)
-      )))
+      1 11 '(1 2 3 4 5 6 7 8 9 10))))
 
 (deftest a-test-common-problem-implement-own-max-key
   (testing "my-max-key function works just fine"
@@ -148,14 +136,11 @@
       (= (apply my-max-key input) expected)
       [1 8 3 4] 8
       [30 20] 30
-      [45 67 11] 67
-      )))
-
+      [45 67 11] 67)))
 
 (deftest a-test-common-problem-implement-own-interpose
   (testing "my-interpose function works just fine"
     (are [item-to-interpose coll expected]
       (= (my-interpose item-to-interpose coll) expected)
       0 [1 2 3] [1 0 2 0 3]
-      :z [:a :b :c :d] [:a :z :b :z :c :z :d]
-      )))
+      :z [:a :b :c :d] [:a :z :b :z :c :z :d])))
