@@ -70,3 +70,6 @@
 
 (defn my-interpose [sep coll]
   (rest (mapcat #(vector sep %) coll)))
+
+(defn drop-every-nth-element [coll el]
+  (apply concat (partition-all (dec el) el coll)))

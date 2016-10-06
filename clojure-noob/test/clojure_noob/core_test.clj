@@ -144,3 +144,11 @@
       (= (my-interpose item-to-interpose coll) expected)
       0 [1 2 3] [1 0 2 0 3]
       :z [:a :b :c :d] [:a :z :b :z :c :z :d])))
+
+(deftest a-test-common-problem-implement-drop-n-th-element
+  (testing "drop-n-th-element function works jut fine"
+    (are [input times expected]
+      (= (drop-every-nth-element input times) expected)
+      [1 2 3 4 5 6 7 8] 3 [1 2 4 5 7 8]
+      [:a :b :c :d :e :f] 2 [:a :c :e]
+      [1 2 3 4 5 6] 4 [1 2 3 5 6])))
