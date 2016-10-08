@@ -152,3 +152,11 @@
       [1 2 3 4 5 6 7 8] 3 [1 2 4 5 7 8]
       [:a :b :c :d :e :f] 2 [:a :c :e]
       [1 2 3 4 5 6] 4 [1 2 3 5 6])))
+
+(deftest a-test-common-problem-implement-own-reverse-interleave
+  (testing "my-interpose function works just fine"
+    (are [seq el expected]
+      (= (reverse-interleave seq el) expected)
+      [1 2 3 4 5 6] 2 '((1 3 5) (2 4 6))
+      (range 9) 3 '((0 3 6) (1 4 7) (2 5 8))
+      (range 10) 5 '((0 5) (1 6) (2 7) (3 8) (4 9)))))

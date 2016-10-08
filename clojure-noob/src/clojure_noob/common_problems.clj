@@ -73,3 +73,6 @@
 
 (defn drop-every-nth-element [coll el]
   (apply concat (partition-all (dec el) el coll)))
+
+(defn reverse-interleave [seq el]
+  (apply map list (partition el seq)))
