@@ -23,6 +23,17 @@
       26 121393
       150 9969216677189303386214405760200N)))
 
+(deftest a-test-common-problems-fibonacci-seq
+  (testing "Fibonacci-seq function works just fine"
+    (are [input expected]
+      (= (take input (fibonacci-seq)) expected)
+      0 '()
+      1 '(0)
+      2 '(0 1)
+      7 '(0 1 1 2 3 5 8)
+      10 '(0 1 1 2 3 5 8 13 21 34)
+      18 '(0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597))))
+
 (deftest a-test-common-problems-prime-numbers
   (testing "prime? function works just fine"
     (are [input expected]
