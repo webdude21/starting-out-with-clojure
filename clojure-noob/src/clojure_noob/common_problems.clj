@@ -10,6 +10,9 @@
         n
         (+' (fibonacci (dec n)) (fibonacci (- n 2)))))))
 
+(defn fibonacci-seq
+  (map first (iterate (fn [[a b]] [b (+' a b)]) [0 1])))
+
 (defn divisable-of? [n]
   (fn [divisor] (zero? (rem n divisor))))
 
