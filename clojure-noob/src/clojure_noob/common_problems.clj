@@ -79,3 +79,7 @@
 
 (defn reverse-interleave [seq el]
   (apply map list (partition el seq)))
+
+(defn rotate [offset coll]
+  (let [coll-size (count coll)]
+    (take coll-size (drop (mod offset coll-size) (cycle coll)))))
