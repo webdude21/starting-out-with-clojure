@@ -38,7 +38,7 @@
 (defn palindrome?
   [coll]
   (= (if (string? coll)
-       (apply str (reverse coll))
+       (clojure.string/reverse coll)
        (reverse coll)) coll))
 
 (defn my-flatten
@@ -51,7 +51,7 @@
 
 (defn compress [coll]
   (if (string? coll)
-    (apply str (dedupe coll))
+    (clojure.string/join (dedupe coll))
     (dedupe coll)))
 
 (defn seq-pack [coll]
