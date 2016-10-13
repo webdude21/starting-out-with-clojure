@@ -47,7 +47,7 @@
           (rest (tree-seq sequential? seq coll))))
 
 (defn filter-caps-chars [chrs]
-  (apply str (filter (fn [x] (Character/isUpperCase x)) chrs)))
+  (clojure.string/join (filter (fn [x] (Character/isUpperCase x)) chrs)))
 
 (defn compress [coll]
   (if (string? coll)
