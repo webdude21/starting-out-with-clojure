@@ -86,3 +86,7 @@
 
 (defn split-a-sequence [split-point seq]
   (vector (take split-point seq) (drop split-point seq)))
+
+(defn split-a-sequence-alternative [split-point seq]
+  (let [splited (partition-all split-point seq)]
+    (vector (first splited) (apply concat (rest splited)))))
