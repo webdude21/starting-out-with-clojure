@@ -83,3 +83,6 @@
 (defn rotate [offset coll]
   (let [coll-size (count coll)]
     (take coll-size (drop (mod offset coll-size) (cycle coll)))))
+
+(defn split-a-sequence [split-point seq]
+  (vector (take split-point seq) (drop split-point seq)))

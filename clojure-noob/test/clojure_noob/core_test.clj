@@ -181,3 +181,11 @@
       6 [1 2 3 4 5] '(2 3 4 5 1)
       1 '(:a :b :c) '(:b :c :a)
       -4 '(:a :b :c) '(:c :a :b))))
+
+(deftest a-test-common-problem-split-a-sequence
+  (testing "split-a-sequence function works just fine"
+    (are [split-point seq expected]
+      (= (split-a-sequence split-point seq) expected)
+      3 [1 2 3 4 5 6] [[1 2 3] [4 5 6]]
+      1 [:a :b :c :d] [[:a] [:b :c :d]]
+      2 [[1 2] [3 4] [5 6]] [[[1 2] [3 4]] [[5 6]]])))
