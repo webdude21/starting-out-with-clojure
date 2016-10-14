@@ -100,3 +100,6 @@
 (defn my-distinct [coll]
   (sort-by #(.indexOf coll %)
            (keys (group-by identity coll))))
+
+(defn gdc [a b]
+  (if (zero? b) a (recur b (mod a b))))
