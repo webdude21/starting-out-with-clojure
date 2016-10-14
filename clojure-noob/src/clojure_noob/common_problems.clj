@@ -90,3 +90,6 @@
 (defn split-a-sequence-alternative [split-point seq]
   (let [splited (partition-all split-point seq)]
     (vector (first splited) (apply concat (rest splited)))))
+
+(defn split-by-type [seq]
+  (vals (group-by type seq)))
