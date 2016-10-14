@@ -206,3 +206,11 @@
       [:a :a :b :b :c :c] [:a :b :c]
       '([2 4] [1 2] [1 3] [1 3]) '([2 4] [1 2] [1 3])
       (range 50) (range 50))))
+
+(deftest a-test-common-problem-count-occurance
+  (testing "split-a-sequence function works just fine"
+    (are [input expected]
+      (= (count-occurances input) expected)
+      [1 1 2 3 2 1 1] {1 4, 2 2, 3 1}
+      [:b :a :b :a :b] {:a 2, :b 3}
+      '([1 2] [1 3] [1 3]) {[1 2] 1, [1 3] 2})))
