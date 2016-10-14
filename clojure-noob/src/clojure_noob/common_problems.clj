@@ -93,3 +93,6 @@
 
 (defn split-by-type [seq]
   (vals (group-by type seq)))
+
+(defn count-occurances [coll]
+  (into {} (map #(vector (key %) (count (val %))) (group-by identity coll))))

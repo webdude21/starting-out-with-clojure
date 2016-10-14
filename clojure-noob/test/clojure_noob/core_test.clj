@@ -189,3 +189,11 @@
       3 [1 2 3 4 5 6] [[1 2 3] [4 5 6]]
       1 [:a :b :c :d] [[:a] [:b :c :d]]
       2 [[1 2] [3 4] [5 6]] [[[1 2] [3 4]] [[5 6]]])))
+
+(deftest a-test-common-problem-count-occurance
+  (testing "split-a-sequence function works just fine"
+    (are [input expected]
+      (= (count-occurances input) expected)
+      [1 1 2 3 2 1 1] {1 4, 2 2, 3 1}
+      [:b :a :b :a :b] {:a 2, :b 3}
+      '([1 2] [1 3] [1 3]) {[1 2] 1, [1 3] 2})))
