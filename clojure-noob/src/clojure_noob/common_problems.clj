@@ -106,3 +106,6 @@
 
 (defn primes [n]
   (take n (filter #(.isProbablePrime (BigInteger/valueOf %) 5) (iterate inc 2))))
+
+(defn primes-alternative [n]
+  (take n (filter prime? (iterate inc 2))))
