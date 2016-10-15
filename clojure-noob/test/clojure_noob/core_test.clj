@@ -214,3 +214,10 @@
       [1 1 2 3 2 1 1] {1 4, 2 2, 3 1}
       [:b :a :b :a :b] {:a 2, :b 3}
       '([1 2] [1 3] [1 3]) {[1 2] 1, [1 3] 2})))
+
+(deftest a-test-common-problem-generate-prime-seq
+  (testing "primes function works just fine"
+    (are [input expected]
+      (= (primes input) expected)
+      2 [2 3]
+      5 [2 3 5 7 11])))
