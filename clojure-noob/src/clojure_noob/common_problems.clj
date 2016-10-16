@@ -44,8 +44,7 @@
 
 (defn my-flatten
   [coll]
-  (filter (complement sequential?)
-          (rest (tree-seq sequential? seq coll))))
+  (remove sequential? (rest (tree-seq sequential? seq coll))))
 
 (defn filter-caps-chars [chrs]
   (clojure.string/join (filter (fn [x] (Character/isUpperCase x)) chrs)))
