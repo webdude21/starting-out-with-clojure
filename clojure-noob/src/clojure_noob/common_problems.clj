@@ -112,3 +112,6 @@
 
 (defn set-intersection [set-a set-b]
   (set (filter #(contains? set-a %) set-b)))
+
+(defn re-iterate [func initial]
+  (cons initial (lazy-seq (re-iterate func (func initial)))))
