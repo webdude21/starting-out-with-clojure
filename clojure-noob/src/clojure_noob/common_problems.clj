@@ -1,4 +1,5 @@
-(ns clojure_noob.common_problems)
+(ns clojure_noob.common_problems
+  (:require [clojure.set :as set]))
 
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
@@ -109,3 +110,6 @@
 
 (defn primes-alternative [n]
   (take n (filter prime? (iterate inc 2))))
+
+(defn set-intersection [set-a set-b]
+  (set (filter #(contains? set-a %) set-b)))

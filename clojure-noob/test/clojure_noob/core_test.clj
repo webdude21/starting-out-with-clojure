@@ -221,3 +221,11 @@
       (= (primes input) expected)
       2 [2 3]
       5 [2 3 5 7 11])))
+
+(deftest a-test-common-set-intersection
+  (testing "set-intersection function works just fine"
+    (are [a b expected]
+      (= (set-intersection a b) expected)
+      #{:a :b :c :d} #{:c :e :a :f :d} #{:a :c :d}
+      #{0 1 2} #{3 4 5} #{}
+      #{0 1 2 3} #{2 3 4 5} #{2 3})))
