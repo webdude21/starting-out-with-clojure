@@ -1,5 +1,4 @@
-(ns clojure_noob.common_problems
-  (:require [clojure.set :as set]))
+(ns clojure_noob.common_problems)
 
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
