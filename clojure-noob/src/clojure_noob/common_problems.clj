@@ -126,3 +126,6 @@
 
 (defn map-defaults [def-val coll]
   (into {} (map #(vector % def-val) coll)))
+
+(defn map-with-indexes [coll]
+  (map-indexed #(vector %2 %1) coll))
