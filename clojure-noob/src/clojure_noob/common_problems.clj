@@ -123,3 +123,6 @@
 
 (defn split-and-sort [x]
   (sort String/CASE_INSENSITIVE_ORDER (clojure.string/split x #"\W")))
+
+(defn map-defaults [def-val coll]
+  (into {} (map #(vector % def-val) coll)))
