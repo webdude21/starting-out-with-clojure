@@ -114,3 +114,9 @@
 
 (defn re-iterate [func initial]
   (cons initial (lazy-seq (re-iterate func (func initial)))))
+
+(fn [op a b]
+  (cond
+    (op a b) :lt
+    (op b a) :gt
+    :else :eq))
