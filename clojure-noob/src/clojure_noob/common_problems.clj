@@ -120,3 +120,6 @@
     (op a b) :lt
     (op b a) :gt
     :else :eq))
+
+(defn split-and-sort [x]
+  (sort String/CASE_INSENSITIVE_ORDER (clojure.string/split x #"\W")))
