@@ -129,3 +129,13 @@
 
 (defn map-with-indexes [coll]
   (map-indexed #(vector %2 %1) coll))
+
+(defn pow [x]
+  (fn [n]
+    (reduce * (repeat x n))))
+
+(defn cartesian-product [x s]
+  (set (for [a x b s] [a b])))
+
+(defn product-digits [a b]
+  (map #(Character/digit % 10) (seq (str (* a b)))))
