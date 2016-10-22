@@ -144,3 +144,6 @@
 ; alternativly concat also works instead of set/union
 (defn symetric-difference [a b]
   (set (remove #(and (a %) (b %)) (set/union a b))))
+
+(defn dot-product [a b]
+  (reduce + (map * a b)))

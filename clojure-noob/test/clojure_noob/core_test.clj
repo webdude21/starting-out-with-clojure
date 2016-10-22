@@ -245,3 +245,14 @@
       #{1 2 3 4 5 6} #{1 3 5 7} #{2 4 6 7}
       #{} #{4 5 6} #{4 5 6}
       #{[1 2] [2 3]} #{[2 3] [3 4]} #{[1 2] [3 4]})))
+
+
+(deftest a-test-common-dot-product
+  (testing "implement-dot-product"
+    (are [expected a b]
+      (= expected (dot-product a b))
+      0 [0 1 0] [1 0 0]
+      3 [1 1 1] [1 1 1]
+      32 [1 2 3] [4 5 6]
+      256 [2 5 6] [100 10 1]
+      )))
