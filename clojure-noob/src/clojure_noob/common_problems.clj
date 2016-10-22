@@ -1,4 +1,5 @@
-(ns clojure_noob.common_problems)
+(ns clojure_noob.common_problems
+  (:require [clojure.set :as set]))
 
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
@@ -139,3 +140,6 @@
 
 (defn product-digits [a b]
   (map #(Character/digit % 10) (seq (str (* a b)))))
+
+(defn symetric-difference [a b]
+  (set (remove #(and (a %) (b %)) (set/union a b))))

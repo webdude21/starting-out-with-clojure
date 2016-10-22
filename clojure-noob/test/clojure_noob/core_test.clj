@@ -237,3 +237,11 @@
       5 #(* 2 %) 1 [1 2 4 8 16]
       100 inc 0 (take 100 (range))
       9 #(inc (mod % 3)) 1 (take 9 (cycle [1 2 3])))))
+
+(deftest a-test-common-symmetric-difference
+  (testing "implement-symmetric-difference"
+    (are [a b expected]
+      (= expected (symetric-difference a b))
+      #{1 2 3 4 5 6} #{1 3 5 7} #{2 4 6 7}
+      #{} #{4 5 6} #{4 5 6}
+      #{[1 2] [2 3]} #{[2 3] [3 4]} #{[1 2] [3 4]})))
