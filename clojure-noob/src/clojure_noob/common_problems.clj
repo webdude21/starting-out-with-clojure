@@ -150,3 +150,6 @@
 
 (defn to-decimal [s]
   (Integer/parseInt s 2))
+
+(defn infix-calc [first & rest]
+  (reduce (fn [a [op b]] (op a b)) first (partition 2 rest)))
