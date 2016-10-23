@@ -147,3 +147,6 @@
 
 (defn dot-product [a b]
   (reduce + (map * a b)))
+
+(defn to-decimal [s]
+  (Integer/parseInt s 2))
