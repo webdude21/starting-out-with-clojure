@@ -1,6 +1,5 @@
 (ns clojure_noob.common_problems
-  (:require [clojure.set :as set]
-            [clojure.string :as str]))
+  (:require [clojure.set :as set]))
 
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
@@ -161,3 +160,9 @@
                           (let [sqr (Math/sqrt i)]
                             (= (Math/floor sqr) sqr)))]
     (clojure.string/join \, (filter perfect-square? parsedInts))))
+
+(defn sum-of-square-digits [coll]
+  (let [smaller-than-digits-squared?
+        (fn [d] (let [digits (map #(Character/getNumericValue %) (String/valueOf d))]
+                  (< d (reduce + (map #(* % %) digits)))))]
+    (count (filter smaller-than-digits-squared? coll))))
