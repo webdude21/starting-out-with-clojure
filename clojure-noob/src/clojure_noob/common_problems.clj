@@ -1,5 +1,6 @@
 (ns clojure_noob.common_problems
-  (:require [clojure.set :as set]))
+  (:require [clojure.set :as set]
+            [clojure.string :as str]))
 
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
@@ -153,3 +154,10 @@
 
 (defn infix-calc [first & rest]
   (reduce (fn [a [op b]] (op a b)) first (partition 2 rest)))
+
+(defn only-perfect-squares [s]
+  (let [parsedInts (map #(Integer/parseInt %) (clojure.string/split s #","))
+        perfect-square? (fn [i]
+                          (let [sqr (Math/sqrt i)]
+                            (= (Math/floor sqr) sqr)))]
+    (clojure.string/join \, (filter perfect-square? parsedInts))))
