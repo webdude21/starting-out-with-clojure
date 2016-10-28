@@ -166,3 +166,7 @@
         (fn [d] (let [digits (map #(Character/getNumericValue %) (String/valueOf d))]
                   (< d (reduce + (map #(* % %) digits)))))]
     (count (filter smaller-than-digits-squared? coll))))
+
+(defn juxtaposition [& funcs]
+  (fn [& args]
+    (map #(apply % args) funcs)))
