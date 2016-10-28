@@ -20,11 +20,11 @@
 (defn prime? [n]
   (not-any? (divisable-of? n) (range 2 (inc (int (Math/sqrt n))))))
 
-(defn length
-  [lst]
+(defn length [lst]
   (loop [i lst cnt 0]
-    (cond (empty? i) cnt
-          :t (recur (rest i) (inc cnt)))))
+    (if (empty? i)
+      cnt
+      (recur (rest i) (inc cnt)))))
 
 (defn my-reverse
   [coll]
@@ -170,3 +170,7 @@
 (defn juxtaposition [& funcs]
   (fn [& args]
     (map #(apply % args) funcs)))
+
+(defn my-map [f coll]
+  (if ((complement empty?) coll)
+    (lazy-seq (cons (f (first coll)) (my-map f (rest coll))))))
