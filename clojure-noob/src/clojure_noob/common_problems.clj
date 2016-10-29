@@ -172,5 +172,10 @@
     (map #(apply % args) funcs)))
 
 (defn my-map [f coll]
-  (if ((complement empty?) coll)
+  (if (not-empty coll)
     (lazy-seq (cons (f (first coll)) (my-map f (rest coll))))))
+
+(defn pascal-triangle [n]
+  (nth
+    (iterate
+      #(vec (map + (concat % [0]) (concat [0] %))) [1]) (dec n)))
