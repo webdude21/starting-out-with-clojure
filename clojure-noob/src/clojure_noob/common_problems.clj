@@ -155,7 +155,7 @@
   (reduce (fn [a [op b]] (op a b)) first (partition 2 rest)))
 
 (defn only-perfect-squares [s]
-  (let [parsedInts (map #(Integer/parseInt %) (clojure.string/split s #","))
+  (let [parsedInts (map #(Integer/parseInt %) (.split s ","))
         perfect-square? (fn [i]
                           (let [sqr (Math/sqrt i)]
                             (= (Math/floor sqr) sqr)))]
@@ -179,3 +179,9 @@
   (nth
     (iterate
       #(vec (map + (concat % [0]) (concat [0] %))) [1]) (dec n)))
+
+(defn recoginze-playing-cards [str]
+  (let [suits {\H :heart \C :club \D :diamond \S :spades}
+        ranks {\2 0, \3 1, \4 2, \5 3, \6 4, \7 5,
+               \8 6, \9 7, \T 8, \J 9, \Q 10, \K 11, \A 12}]
+    {:suit (suits (first str)) :rank (ranks (last str))}))
