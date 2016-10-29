@@ -51,7 +51,7 @@
 
 (defn compress [coll]
   (if (string? coll)
-    (clojure.string/join (dedupe coll))
+    (str (dedupe coll))
     (dedupe coll)))
 
 (defn seq-pack [coll]
