@@ -202,3 +202,7 @@
   (let [words (.split s "-")]
     (apply str
            (concat (first words) (map clojure.string/capitalize (rest words))))))
+
+(defn partition-seq [n seq]
+  (if (>= (count seq) n)
+    (cons (take n seq) (partition-seq n (drop n seq)))))
