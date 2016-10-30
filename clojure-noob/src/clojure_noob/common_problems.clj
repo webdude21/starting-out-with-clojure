@@ -47,11 +47,11 @@
   (remove sequential? (rest (tree-seq sequential? seq coll))))
 
 (defn filter-caps-chars [chrs]
-  (clojure.string/join (filter (fn [x] (Character/isUpperCase x)) chrs)))
+  (apply str (filter (fn [x] (Character/isUpperCase x)) chrs)))
 
 (defn compress [coll]
   (if (string? coll)
-    (clojure.string/join (dedupe coll))
+    (apply str (dedupe coll))
     (dedupe coll)))
 
 (defn seq-pack [coll]
@@ -190,3 +190,14 @@
   (set (map set
             (remove #(<= (count %) 1)
                     (map val (group-by sort coll))))))
+
+(defn black-box-testing [coll]
+  (let [empty-coll (empty coll)]
+    (cond
+      (= empty-coll {}) :map
+      (= empty-coll #{}) :set
+      (= empty-coll '()) (if (reversible? coll) :vector :list))))
+
+(defn convert-to-camel-case [s]
+  (let [words (.split s "-")]
+    (apply str (concat (first words) (map clojure.string/capitalize (rest words))))))
