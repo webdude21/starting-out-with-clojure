@@ -51,7 +51,7 @@
 
 (defn compress [coll]
   (if (string? coll)
-    (str (dedupe coll))
+    (clojure.string/join (dedupe coll))
     (dedupe coll)))
 
 (defn seq-pack [coll]
@@ -185,3 +185,8 @@
         ranks {\2 0, \3 1, \4 2, \5 3, \6 4, \7 5,
                \8 6, \9 7, \T 8, \J 9, \Q 10, \K 11, \A 12}]
     {:suit (suits (first str)) :rank (ranks (last str))}))
+
+(defn anagram-finder [coll]
+  (set (map set
+            (remove #(<= (count %) 1)
+                    (map val (group-by sort coll))))))

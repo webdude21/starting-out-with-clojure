@@ -254,3 +254,11 @@
       3 [1 1 1] [1 1 1]
       32 [1 2 3] [4 5 6]
       256 [2 5 6] [100 10 1])))
+
+(deftest a-test-common-anagram-finder
+  (testing "implement-anagram-finder"
+    (are [input expected]
+      (= expected (anagram-finder input))
+      ["meat" "mat" "team" "mate" "eat"] #{#{"meat" "team" "mate"}}
+      ["veer" "lake" "item" "kale" "mite" "ever"]
+      #{#{"veer" "ever"} #{"lake" "kale"} #{"mite" "item"}})))
