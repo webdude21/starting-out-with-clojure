@@ -200,4 +200,5 @@
 
 (defn convert-to-camel-case [s]
   (let [words (.split s "-")]
-    (apply str (concat (first words) (map clojure.string/capitalize (rest words))))))
+    (apply str
+           (concat (first words) (map clojure.string/capitalize (rest words))))))
