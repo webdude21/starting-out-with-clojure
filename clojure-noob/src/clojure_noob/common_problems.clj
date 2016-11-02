@@ -206,3 +206,8 @@
 (defn partition-seq [n seq]
   (if (>= (count seq) n)
     (cons (take n seq) (partition-seq n (drop n seq)))))
+
+(defn perfect-number [n]
+  (=
+    (apply +
+           (filter #(zero? (rem n %)) (range 1 n))) n))
