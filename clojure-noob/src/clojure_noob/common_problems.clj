@@ -72,7 +72,7 @@
   (last (sort args)))
 
 (defn my-interpose [sep coll]
-  (rest (mapcat #(vector sep %) coll)))
+  (rest (mapcat (partial vector sep) coll)))
 
 (defn drop-every-nth-element [coll el]
   (apply concat (partition-all (dec el) el coll)))
@@ -111,7 +111,7 @@
   (take n (filter prime? (iterate inc 2))))
 
 (defn set-intersection [set-a set-b]
-  (set (filter #(set-a %) set-b)))
+  (set (filter set-a set-b)))
 
 (defn re-iterate [func initial]
   (cons initial (lazy-seq (re-iterate func (func initial)))))
@@ -210,4 +210,4 @@
 (defn perfect-number [n]
   (=
     (apply +
-           (filter #(zero? (rem n %)) (range 1 n))) n))
+           (filter (comp zero? (partial rem n)) (range 1 n))) n))
