@@ -196,7 +196,8 @@
     (cond
       (= empty-coll {}) :map
       (= empty-coll #{}) :set
-      (= empty-coll '()) (if (reversible? coll) :vector :list))))
+      (reversible? coll) :vector
+      :else :list)))
 
 (defn convert-to-camel-case [s]
   (let [words (.split s "-")]
