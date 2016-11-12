@@ -162,9 +162,9 @@
     (clojure.string/join \, (filter perfect-square? parsedInts))))
 
 (defn sum-of-square-digits [coll]
-  (let [smaller-than-digits-squared?
-        (fn [d] (let [digits (map #(Character/getNumericValue %) (String/valueOf d))]
-                  (< d (reduce + (map #(* % %) digits)))))]
+  (letfn [(smaller-than-digits-squared? [d]
+            (let [digits (map #(Character/getNumericValue %) (String/valueOf d))]
+              (< d (reduce + (map #(* % %) digits)))))]
     (count (filter smaller-than-digits-squared? coll))))
 
 (defn juxtaposition [& funcs]
@@ -214,7 +214,7 @@
            (filter (comp zero? (partial rem n)) (range 1 n))) n))
 
 (defn lcm [& args]
-  (let [gcd (fn [a b]
-              (if (zero? b) a (recur b (mod a b))))
-        lcm-for-two-args (fn [a b] (/ (* a b) (gcd a b)))]
+  (letfn [(gcd [a b]
+            (if (zero? b) a (recur b (mod a b))))
+          (lcm-for-two-args [a b] (/ (* a b) (gcd a b)))]
     (reduce lcm-for-two-args args)))
