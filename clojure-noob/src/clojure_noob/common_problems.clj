@@ -212,3 +212,9 @@
   (=
     (apply +
            (filter (comp zero? (partial rem n)) (range 1 n))) n))
+
+(defn lcm [& args]
+  (let [gcd (fn [a b]
+              (if (zero? b) a (recur b (mod a b))))
+        lcm-for-two-args (fn [a b] (/ (* a b) (gcd a b)))]
+    (reduce lcm-for-two-args args)))
