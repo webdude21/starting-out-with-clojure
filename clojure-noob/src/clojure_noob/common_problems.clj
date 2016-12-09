@@ -218,3 +218,14 @@
             (if (zero? b) a (recur b (mod a b))))
           (lcm-for-two-args [a b] (/ (* a b) (gcd a b)))]
     (reduce lcm-for-two-args args)))
+
+(defn happy-numbers
+  ([n] (happy-numbers n 0))
+  ([n iteretion-count]
+   (let [digits (map #(Character/getNumericValue %) (String/valueOf n))
+         squares-sum (reduce + (map #(* % %) digits))]
+     (cond
+       (= n 1) true
+       (= n squares-sum) false
+       (> iteretion-count 100) false
+       :else (recur squares-sum (inc iteretion-count))))))
