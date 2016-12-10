@@ -229,3 +229,11 @@
        (= n squares-sum) false
        (> iteretion-count 100) false
        :else (recur squares-sum (inc iteretion-count))))))
+
+(defn balance-of [n]
+  (let [digits (map #(Character/getNumericValue %) (String/valueOf n))
+        mid-point (quot (count digits) 2)
+        left-digits (take mid-point digits)
+        right-digits (take-last mid-point digits)
+        sum-digits (partial apply +)]
+    (= (sum-digits left-digits) (sum-digits right-digits))))
