@@ -237,3 +237,8 @@
         right-digits (take-last mid-point digits)
         sum-digits (partial apply +)]
     (= (sum-digits left-digits) (sum-digits right-digits))))
+
+(defn digit-bases [n base]
+  (if (< n base)
+    [n]
+    (concat (digit-bases (int (/ n base)) base) [(mod n base)])))
