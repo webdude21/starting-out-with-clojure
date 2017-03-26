@@ -194,9 +194,9 @@
   (testing "count-occurance function works just fine"
     (are [input expected]
       (= expected (count-occurances input))
-      [1 1 2 3 2 1 1] {1 4, 2 2, 3 1}
-      [:b :a :b :a :b] {:a 2, :b 3}
-      '([1 2] [1 3] [1 3]) {[1 2] 1, [1 3] 2})))
+      [1 1 2 3 2 1 1] {1 4 2 2 3 1}
+      [:b :a :b :a :b] {:a 2 :b 3}
+      '([1 2] [1 3] [1 3]) {[1 2] 1 [1 3] 2})))
 
 (deftest a-test-common-problem-my-distinct
   (testing "my-distinct function works just fine"
@@ -211,9 +211,9 @@
   (testing "split-a-sequence function works just fine"
     (are [input expected]
       (= expected (count-occurances input))
-      [1 1 2 3 2 1 1] {1 4, 2 2, 3 1}
-      [:b :a :b :a :b] {:a 2, :b 3}
-      '([1 2] [1 3] [1 3]) {[1 2] 1, [1 3] 2})))
+      [1 1 2 3 2 1 1] {1 4 2 2 3 1}
+      [:b :a :b :a :b] {:a 2 :b 3}
+      '([1 2] [1 3] [1 3]) {[1 2] 1 [1 3] 2})))
 
 (deftest a-test-common-problem-generate-prime-seq
   (testing "primes function works just fine"
