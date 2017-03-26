@@ -1,5 +1,6 @@
 (ns clojure_noob.common_problems
-  (:require [clojure.set :as set]))
+  (:require [clojure.set :as set])
+  (:require [clojure.string :as string]))
 
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
@@ -39,7 +40,7 @@
 (defn palindrome?
   [coll]
   (= (if (string? coll)
-       (clojure.string/reverse coll)
+       (string/reverse coll)
        (reverse coll)) coll))
 
 (defn my-flatten
@@ -123,7 +124,7 @@
     :else :eq))
 
 (defn split-and-sort [x]
-  (sort String/CASE_INSENSITIVE_ORDER (clojure.string/split x #"\W")))
+  (sort String/CASE_INSENSITIVE_ORDER (string/split x #"\W")))
 
 (defn map-defaults [def-val coll]
   (into {} (map #(vector % def-val) coll)))
@@ -159,7 +160,7 @@
         perfect-square? (fn [i]
                           (let [sqr (Math/sqrt i)]
                             (= (Math/floor sqr) sqr)))]
-    (clojure.string/join \, (filter perfect-square? parsedInts))))
+    (string/join \, (filter perfect-square? parsedInts))))
 
 (defn sum-of-square-digits [coll]
   (letfn [(smaller-than-digits-squared? [d]
@@ -202,7 +203,7 @@
 (defn convert-to-camel-case [s]
   (let [words (.split s "-")]
     (apply str
-           (concat (first words) (map clojure.string/capitalize (rest words))))))
+           (concat (first words) (map string/capitalize (rest words))))))
 
 (defn partition-seq [n seq]
   (if (>= (count seq) n)
@@ -222,7 +223,7 @@
 (defn happy-numbers
   ([n] (happy-numbers n 0))
   ([n iteretion-count]
-   (let [digits (map #(Character/getNumericValue %) (String/valueOf n))
+   (let [digits (map #(Character/getNumericValue %) (str n))
          squares-sum (reduce + (map #(* % %) digits))]
      (cond
        (= n 1) true
@@ -231,7 +232,7 @@
        :else (recur squares-sum (inc iteretion-count))))))
 
 (defn balance-of [n]
-  (let [digits (map #(Character/getNumericValue %) (String/valueOf n))
+  (let [digits (map #(Character/getNumericValue %) (str n))
         mid-point (quot (count digits) 2)
         left-digits (take mid-point digits)
         right-digits (take-last mid-point digits)
