@@ -156,7 +156,7 @@
   (reduce (fn [a [op b]] (op a b)) first (partition 2 rest)))
 
 (defn only-perfect-squares [s]
-  (let [parsedInts (map #(Integer/parseInt %) (.split s ","))
+  (let [parsedInts (map #(Integer/parseInt %) (.split s \,))
         perfect-square? (fn [i]
                           (let [sqr (Math/sqrt i)]
                             (= (Math/floor sqr) sqr)))]
