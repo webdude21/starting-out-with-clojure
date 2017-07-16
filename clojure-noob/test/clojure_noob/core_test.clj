@@ -262,3 +262,9 @@
       ["meat" "mat" "team" "mate" "eat"] #{#{"meat" "team" "mate"}}
       ["veer" "lake" "item" "kale" "mite" "ever"]
       #{#{"veer" "ever"} #{"lake" "kale"} #{"mite" "item"}})))
+
+(deftest a-test-common-sequence-reductions
+  (testing "sequence reductions"
+    (are [expected a b]
+      (= expected (take 5 (my-reductions a b)))
+         [0 1 3 6 10] + (range))))

@@ -243,3 +243,17 @@
   (if (< n base)
     [n]
     (concat (digit-bases (int (/ n base)) base) [(mod n base)])))
+
+
+
+(defn my-reductions
+  ([f coll]
+   (lazy-seq
+     (if-let [s (seq coll)]
+       (my-reductions f (first s) (rest s))
+       (list (f)))))
+  ([f init coll]
+   (cons init
+         (lazy-seq
+           (when-let [s (seq coll)]
+             (my-reductions f (f init (first s)) (rest s)))))))
