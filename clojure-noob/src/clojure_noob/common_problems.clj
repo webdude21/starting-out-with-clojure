@@ -222,14 +222,14 @@
 
 (defn happy-numbers
   ([n] (happy-numbers n 0))
-  ([n iteretion-count]
+  ([n iteration-count]
    (let [digits (map #(Character/getNumericValue %) (str n))
          squares-sum (reduce + (map #(* % %) digits))]
      (cond
        (= n 1) true
        (= n squares-sum) false
-       (> iteretion-count 100) false
-       :else (recur squares-sum (inc iteretion-count))))))
+       (> iteration-count 100) false
+       :else (recur squares-sum (inc iteration-count))))))
 
 (defn balance-of [n]
   (let [digits (map #(Character/getNumericValue %) (str n))
