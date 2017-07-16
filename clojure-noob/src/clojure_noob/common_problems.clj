@@ -15,6 +15,12 @@
 (defn fibonacci-seq []
   (map first (iterate (fn [[a b]] [b (+' a b)]) [0 1])))
 
+(defn factorial-loop-recur [n]
+  (loop [i 1 res 1]
+    (if (> i n)
+      res
+      (recur (inc i) (* res i)))))
+
 (defn divisable-of? [n]
   (fn [divisor] (zero? (rem n divisor))))
 
