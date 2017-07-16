@@ -21,11 +21,11 @@
       res
       (recur (inc i) (* res i)))))
 
-(defn divisable-of? [n]
+(defn divisible-of? [n]
   (fn [divisor] (zero? (rem n divisor))))
 
 (defn prime? [n]
-  (not-any? (divisable-of? n) (range 2 (inc (int (Math/sqrt n))))))
+  (not-any? (divisible-of? n) (range 2 (inc (int (Math/sqrt n))))))
 
 (defn length [lst]
   (loop [i lst cnt 0]
