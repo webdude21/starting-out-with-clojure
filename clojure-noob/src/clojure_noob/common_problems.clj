@@ -101,14 +101,14 @@
 (defn split-by-type [seq]
   (vals (group-by type seq)))
 
-(defn count-occurances [coll]
+(defn count-occurrences [coll]
   (into {} (map #(vector (key %) (count (val %))) (group-by identity coll))))
 
 (defn my-distinct [coll]
   (sort-by #(.indexOf coll %)
            (keys (group-by identity coll))))
 
-(defn gdc [a b]
+(defn gcd [a b]
   (if (zero? b) a (recur b (mod a b))))
 
 (defn primes [n]

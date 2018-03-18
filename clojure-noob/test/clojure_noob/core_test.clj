@@ -193,7 +193,7 @@
 (deftest a-test-common-problem-count-occurance
   (testing "count-occurance function works just fine"
     (are [input expected]
-      (= expected (count-occurances input))
+      (= expected (count-occurrences input))
       [1 1 2 3 2 1 1] {1 4 2 2 3 1}
       [:b :a :b :a :b] {:a 2 :b 3}
       '([1 2] [1 3] [1 3]) {[1 2] 1 [1 3] 2})))
@@ -210,7 +210,7 @@
 (deftest a-test-common-problem-count-occurance
   (testing "split-a-sequence function works just fine"
     (are [input expected]
-      (= expected (count-occurances input))
+      (= expected (count-occurrences input))
       [1 1 2 3 2 1 1] {1 4 2 2 3 1}
       [:b :a :b :a :b] {:a 2 :b 3}
       '([1 2] [1 3] [1 3]) {[1 2] 1 [1 3] 2})))
