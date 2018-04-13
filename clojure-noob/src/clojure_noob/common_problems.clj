@@ -194,9 +194,12 @@
     {:suit (suits (first str)) :rank (ranks (last str))}))
 
 (defn anagram-finder [coll]
-  (set (map set
-            (remove #(<= (count %) 1)
-                    (map val (group-by sort coll))))))
+  (->> coll
+       (group-by sort)
+       (map val)
+       (remove #(<= (count %) 1))
+       (map set)
+       set))
 
 (defn black-box-testing [coll]
   (let [empty-coll (empty coll)]
