@@ -271,9 +271,19 @@
       [0 1 3 6 10] + (range))))
 
 (deftest a-test-find-distinct-element
-  (testing "implement-find-distinct-element"
+  (testing "implement find distinct element"
     (are [input expected]
       (= expected (find-distinct-el input) (find-distinct-el-numbers-only input))
       [1 1 2 3 3 4 4 5 5] 2
       [1 1 1 1 2 2 3 3 4 5 5 5 5 5 5] 4
       )))
+
+(deftest a-test-perfect-number
+  (testing "perfect numbers should work just fine"
+    (are [input expected]
+      (= expected (perfect-number input))
+      0 true
+      6 true
+      7 false
+      10 false
+      28 true)))
