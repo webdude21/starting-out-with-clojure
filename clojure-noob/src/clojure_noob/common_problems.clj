@@ -250,8 +250,6 @@
     [n]
     (concat (digit-bases (int (/ n base)) base) [(mod n base)])))
 
-
-
 (defn my-reductions
   ([f coll]
    (lazy-seq
@@ -263,3 +261,13 @@
          (lazy-seq
            (when-let [s (seq coll)]
              (my-reductions f (f init (first s)) (rest s)))))))
+
+(defn find-distinct-el [coll]
+  (->> coll
+       (partition-by identity)
+       (remove #(> (count %) 1))
+       first
+       first))
+
+(defn find-distinct-el-numbers-only [coll]
+  (reduce bit-xor coll))
