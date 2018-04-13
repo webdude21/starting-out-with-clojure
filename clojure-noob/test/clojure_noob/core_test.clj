@@ -218,7 +218,7 @@
 (deftest a-test-common-problem-generate-prime-seq
   (testing "primes function works just fine"
     (are [input expected]
-      (= expected (primes input))
+        (= expected (primes input))
       2 [2 3]
       5 [2 3 5 7 11])))
 

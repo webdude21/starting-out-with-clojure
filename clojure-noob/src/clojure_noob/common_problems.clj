@@ -2,6 +2,8 @@
   (:require [clojure.set :as set])
   (:require [clojure.string :as string]))
 
+(use 'criterium.core)
+
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
 
@@ -111,8 +113,11 @@
 (defn gcd [a b]
   (if (zero? b) a (recur b (mod a b))))
 
+(defn lazy-primes []
+  (iterate #(.nextProbablePrime (BigInteger/valueOf %)) 2))
+
 (defn primes [n]
-  (take n (filter #(.isProbablePrime (BigInteger/valueOf %) 5) (iterate inc 2))))
+    (take n (lazy-primes)))
 
 (defn primes-alternative [n]
   (take n (filter prime? (iterate inc 2))))
@@ -224,9 +229,7 @@
            (filter (comp zero? (partial rem n)) (range 1 n))) n))
 
 (defn lcm [& args]
-  (letfn [(gcd [a b]
-            (if (zero? b) a (recur b (mod a b))))
-          (lcm-for-two-args [a b] (/ (* a b) (gcd a b)))]
+  (letfn [(lcm-for-two-args [a b] (/ (* a b) (gcd a b)))]
     (reduce lcm-for-two-args args)))
 
 (defn happy-numbers
