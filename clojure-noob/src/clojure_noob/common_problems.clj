@@ -1,6 +1,6 @@
 (ns clojure_noob.common_problems
-  (:require [clojure.set :as set])
-  (:require [clojure.string :as string]))
+  (:require [clojure.set :as set]
+            [clojure.string :as str]))
 
 (use 'criterium.core)
 
@@ -48,7 +48,7 @@
 (defn palindrome?
   [coll]
   (= (if (string? coll)
-       (string/reverse coll)
+       (str/reverse coll)
        (reverse coll)) coll))
 
 (defn my-flatten
@@ -117,7 +117,7 @@
   (iterate #(.nextProbablePrime (BigInteger/valueOf %)) 2))
 
 (defn primes [n]
-    (take n (lazy-primes)))
+  (take n (lazy-primes)))
 
 (defn primes-alternative [n]
   (take n (filter prime? (iterate inc 2))))
@@ -135,7 +135,7 @@
     :else :eq))
 
 (defn split-and-sort [x]
-  (sort String/CASE_INSENSITIVE_ORDER (string/split x #"\W")))
+  (sort String/CASE_INSENSITIVE_ORDER (str/split x #"\W")))
 
 (defn map-defaults [def-val coll]
   (into {} (map #(vector % def-val) coll)))
@@ -171,7 +171,7 @@
         perfect-square? (fn [i]
                           (let [sqr (Math/sqrt i)]
                             (= (Math/floor sqr) sqr)))]
-    (string/join \, (filter perfect-square? parsedInts))))
+    (str/join \, (filter perfect-square? parsedInts))))
 
 (defn sum-of-square-digits [coll]
   (letfn [(smaller-than-digits-squared? [d]
@@ -217,7 +217,7 @@
 (defn convert-to-camel-case [s]
   (let [words (.split s "-")]
     (apply str
-           (concat (first words) (map string/capitalize (rest words))))))
+           (concat (first words) (map str/capitalize (rest words))))))
 
 (defn partition-seq [n seq]
   (if (>= (count seq) n)
