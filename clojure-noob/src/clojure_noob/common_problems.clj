@@ -5,18 +5,18 @@
 (use 'criterium.core)
 
 (defn merge-parts [left right]
-  (loop [left-ptr 0 right-ptr 0 result []]
+  (loop [left-ind 0 right-ind 0 result []]
     (if (>= (count result) (+ (count left) (count right)))
       result
-      (let [left-in-bounds (< left-ptr (count left))
-            right-in-bounds (< right-ptr (count right))]
+      (let [left-in-bounds (< left-ind (count left))
+            right-in-bounds (< right-ind (count right))]
         (if (and left-in-bounds right-in-bounds)
-          (if (< (left left-ptr) (right right-ptr))
-            (recur (inc left-ptr) right-ptr (conj result (left left-ptr)))
-            (recur left-ptr (inc right-ptr) (conj result (right right-ptr))))
+          (if (< (left left-ind) (right right-ind))
+            (recur (inc left-ind) right-ind (conj result (left left-ind)))
+            (recur left-ind (inc right-ind) (conj result (right right-ind))))
           (if left-in-bounds
-            (recur (inc left-ptr) right-ptr (conj result (left left-ptr)))
-            (recur left-ptr (inc right-ptr) (conj result (right right-ptr)))
+            (recur (inc left-ind) right-ind (conj result (left left-ind)))
+            (recur left-ind (inc right-ind) (conj result (right right-ind)))
             ))))))
 
 (defn merge-sort [coll]
