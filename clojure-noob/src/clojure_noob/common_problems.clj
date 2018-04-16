@@ -11,7 +11,7 @@
       (let [left-in-bounds (< left-ind (count left))
             right-in-bounds (< right-ind (count right))]
         (if (and left-in-bounds right-in-bounds)
-          (if (< (left left-ind) (right right-ind))
+          (if (< (compare (left left-ind) (right right-ind)) 0)
             (recur (inc left-ind) right-ind (conj result (left left-ind)))
             (recur left-ind (inc right-ind) (conj result (right right-ind))))
           (if left-in-bounds
