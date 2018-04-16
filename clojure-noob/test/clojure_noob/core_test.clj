@@ -10,6 +10,14 @@
       5 120
       15 1307674368000)))
 
+(deftest a-merge-sort-should-work
+  (testing "Merge sort algorithm should properly sort"
+    (are [input]
+      (= (sort input) (merge-sort input))
+      [4 1 3 15 -22 5]
+      [-10 100 2 100 142 -1000421 14200124 -2410012]
+      [])))
+
 (deftest a-test-common-problems-fibonacci
   (testing "Fibonacci function works just fine"
     (are [input expected]
@@ -218,7 +226,7 @@
 (deftest a-test-common-problem-generate-prime-seq
   (testing "primes function works just fine"
     (are [input expected]
-        (= expected (primes input))
+      (= expected (primes input))
       2 [2 3]
       5 [2 3 5 7 11])))
 

@@ -4,6 +4,30 @@
 
 (use 'criterium.core)
 
+(defn merge-parts [left right]
+  (loop [left-ptr 0 right-ptr 0 result []]
+    (if (>= (count result) (+ (count left) (count right)))
+      result
+      (let [left-in-bounds (< left-ptr (count left))
+            right-in-bounds (< right-ptr (count right))]
+        (if (and left-in-bounds right-in-bounds)
+          (if (< (left left-ptr) (right right-ptr))
+            (recur (inc left-ptr) right-ptr (conj result (left left-ptr)))
+            (recur left-ptr (inc right-ptr) (conj result (right right-ptr))))
+          (if left-in-bounds
+            (recur (inc left-ptr) right-ptr (conj result (left left-ptr)))
+            (recur left-ptr (inc right-ptr) (conj result (right right-ptr)))
+            ))))))
+
+(defn merge-sort [coll]
+  (if (<= (count coll) 1)
+    coll
+    (let [end (count coll)
+          mid (/ end 2)
+          left (merge-sort (subvec coll 0 mid))
+          right (merge-sort (subvec coll mid))]
+      (merge-parts left right))))
+
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
 
