@@ -38,6 +38,11 @@
         n
         (+' (fibonacci (dec n)) (fibonacci (- n 2)))))))
 
+(defn fizz-buzz []
+  (let [fizzes (cycle ["" "" "fizz"])
+        buzzes (cycle ["" "" "" "" "buzz"])]
+    (map str fizzes buzzes)))
+
 (defn fibonacci-seq []
   (map first (iterate (fn [[a b]] [b (+' a b)]) [0 1])))
 
@@ -301,3 +306,6 @@
 
 (defn find-distinct-el-numbers-only [coll]
   (reduce bit-xor coll))
+
+(defn power-set [coll]
+  (set (reduce #(concat %1 (map (fn [i] (set (conj i %2))) %1)) #{#{}} coll)))

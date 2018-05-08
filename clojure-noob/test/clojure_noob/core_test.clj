@@ -296,3 +296,11 @@
       7 false
       10 false
       28 true)))
+
+(deftest a-test-powerset
+  (testing "power-set should work just fine"
+    (are [input expected]
+      (= expected (power-set input))
+      #{1 :a} #{#{1 :a} #{:a} #{} #{1}}
+      #{} #{#{}}
+      #{1 2 3} #{#{} #{1} #{2} #{3} #{1 2} #{1 3} #{2 3} #{1 2 3}})))
