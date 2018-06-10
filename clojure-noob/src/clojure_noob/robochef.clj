@@ -7,8 +7,8 @@
    ::steps       ["fry the aubergines"
                   "add the soy sauce"]})
 
-(s/def ::recipe (s/map-of keyword? vector?))
-(s/def ::steps (s/coll-of string? []))
+(s/def ::recipe (s/keys :req [::ingredients] :opt [::steps]))
+(s/def ::steps (s/coll-of string?))
 (s/def ::ingredients (s/+ ::ingredient))
 (s/def ::ingredient (s/cat :amount number?
                            :unit keyword?
