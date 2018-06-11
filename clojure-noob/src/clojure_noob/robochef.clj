@@ -9,7 +9,8 @@
                   "add the soy sauce"]})
 
 (s/def ::recipe (s/keys :req [::ingredients] :opt [::steps]))
-(s/def ::steps (s/coll-of (every-pred string? (complement str/blank?) #(> (count %) 3))))
+(s/def ::step (s/and string? (complement str/blank?) #(> (count %) 3)))
+(s/def ::steps (s/coll-of ::step))
 (s/def ::ingredients (s/+ ::ingredient))
 (s/def ::ingredient (s/cat :amount number?
                            :unit keyword?
