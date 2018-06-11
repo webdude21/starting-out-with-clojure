@@ -1,5 +1,6 @@
 (ns clojure-noob.robochef
-  (:require [clojure.spec.alpha :as s]))
+  (:require [clojure.spec.alpha :as s]
+            [clojure.string :as str]))
 
 (def recipe
   {::ingredients [1 :kg "aubergines"
@@ -8,7 +9,7 @@
                   "add the soy sauce"]})
 
 (s/def ::recipe (s/keys :req [::ingredients] :opt [::steps]))
-(s/def ::steps (s/coll-of string?))
+(s/def ::steps (s/coll-of (every-pred string? (complement str/blank?) #(> (count %) 3))))
 (s/def ::ingredients (s/+ ::ingredient))
 (s/def ::ingredient (s/cat :amount number?
                            :unit keyword?
