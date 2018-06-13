@@ -304,3 +304,10 @@
       #{1 :a} #{#{1 :a} #{:a} #{} #{1}}
       #{} #{#{}}
       #{1 2 3} #{#{} #{1} #{2} #{3} #{1 2} #{1 3} #{2 3} #{1 2 3}})))
+
+(deftest a-test-for-my-trampoline
+  (testing "my-trampoline should work just fine"
+    (is (= 82 (letfn [(triple [x] #(sub-two (* 3 x)))
+                      (sub-two [x] #(stop? (- x 2)))
+                      (stop? [x] (if (> x 50) x #(triple x)))]
+                (my-trampoline triple 2))))))

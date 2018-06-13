@@ -2,8 +2,6 @@
   (:require [clojure.set :as set]
             [clojure.string :as str]))
 
-(use 'criterium.core)
-
 (defn merge-parts [left right]
   (loop [left-ind 0 right-ind 0 result []]
     (if (>= (count result) (+ (count left) (count right)))
@@ -309,3 +307,10 @@
 
 (defn power-set [coll]
   (set (reduce #(concat %1 (map (fn [i] (set (conj i %2))) %1)) #{#{}} coll)))
+
+(defn my-trampoline
+  ([f & args]
+   (my-trampoline (apply f args)))
+  ([f]
+    (let [ret (f)]
+      (if (fn? ret) (recur ret) ret))))
