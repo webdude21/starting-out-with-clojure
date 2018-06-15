@@ -124,8 +124,8 @@
   (vector (take split-point seq) (drop split-point seq)))
 
 (defn split-a-sequence-alternative [split-point seq]
-  (let [splited (partition-all split-point seq)]
-    (vector (first splited) (apply concat (rest splited)))))
+  (let [partitions (partition-all split-point seq)]
+    (vector (first partitions) (apply concat (rest partitions)))))
 
 (defn split-by-type [seq]
   (vals (group-by type seq)))
@@ -180,7 +180,7 @@
 (defn product-digits [a b]
   (map #(Character/digit % 10) (seq (str (* a b)))))
 
-; alternativly concat also works instead of set/union
+; alternatively concat also works instead of set/union
 (defn symetric-difference [a b]
   (set (remove #(and (a %) (b %)) (set/union a b))))
 
