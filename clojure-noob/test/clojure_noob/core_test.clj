@@ -311,3 +311,15 @@
                       (sub-two [x] #(stop? (- x 2)))
                       (stop? [x] (if (> x 50) x #(triple x)))]
                 (my-trampoline triple 2))))))
+
+(deftest a-test-beauty-is-symmetry
+  (testing "beauty is symmetry"
+    (are [input expected]
+      (= expected (symetric? input))
+      '(:a (:b nil nil) (:b nil nil)) true
+      '(:a (:b nil nil) nil) false
+      '(:a (:b nil nil) (:c nil nil)) false
+      [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]] [2 [3 nil [4 [6 nil nil] [5 nil nil]]] nil]] true
+      [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]] [2 [3 nil [4 [5 nil nil] [6 nil nil]]] nil]] false
+      [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]] [2 [3 nil [4 [6 nil nil] nil]] nil]] false
+      )))

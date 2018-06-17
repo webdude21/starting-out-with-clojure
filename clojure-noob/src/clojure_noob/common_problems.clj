@@ -312,5 +312,21 @@
   ([f & args]
    (my-trampoline (apply f args)))
   ([f]
-    (let [ret (f)]
-      (if (fn? ret) (recur ret) ret))))
+   (let [ret (f)]
+     (if (fn? ret) (recur ret) ret))))
+
+(defn is-tree? [root]
+  (or (nil? root)
+      (and (sequential? root)
+           (= 3 (count root))
+           (every? is-tree? (rest root)))))
+
+(defn symetric? [[_ left right]]
+  (let [has-more-branches (and (coll? left) (coll? right))]
+    (if has-more-branches
+      (let [[LV LL LR] left
+            [RV RL RR] right]
+        (and (= LV RV)
+             (symetric? [nil LL RR])
+             (symetric? [nil RL LR])))
+      (= left right))))
