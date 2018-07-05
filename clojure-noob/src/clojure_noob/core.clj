@@ -5,7 +5,7 @@
 (defn pow [x]
   (fn [y] (int (Math/pow x y))))
 
-(defn avarage [numbers]
+(defn average [numbers]
   (/ (apply + numbers) (count numbers)))
 
 (defn -main [& args]
@@ -16,6 +16,6 @@
 
   (def someNumbers [60 80 100 400])
 
-  (printf "Average of %s is %d%n" someNumbers (avarage someNumbers))
+  (printf "Average of %s is %d%n" someNumbers (average someNumbers))
   (println (map sumWithTwo [1 3 4 5 6]))
   (println (map toThePowerOf10 [1 3 4 5 6])))
